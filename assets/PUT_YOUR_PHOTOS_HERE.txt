@@ -1,0 +1,1 @@
+Replace photo1.svg ... photo9.svg with your own photos, and update index.html if you change the filenames.

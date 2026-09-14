@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Nada ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     PASSWORD SCREEN
+========================================================= -->
+
+<section id="lockScreen" class="screen lock-screen">
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <div class="lock-card">
+
+        <div class="heart-badge">♡</div>
+
+        <span class="eyebrow">
+            A LITTLE SURPRISE
+        </span>
+
+        <h1>
+            Open when<br>
+            you're alone
+        </h1>
+
+        <p>
+            There is a tiny world waiting for you.
+        </p>
+
+        <form id="unlockForm">
+
+            <label for="password">
+               .
+            </label>
+
+            <input
+                id="password"
+                type="password"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Enter date of birth"
+                maxlength="16"
+                required
+            >
+
+            <button type="submit">
+                Open my surprise
+                <span>♡</span>
+            </button>
+
+            <div id="loginError"></div>
+
+        </form>
+
+        <small>
+I made this just for you. ❤️        </small>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAKE SCREEN
+========================================================= -->
+
+<section id="cakeScene" class="screen cake-scene hidden">
+
+    <div class="scene-title">
+     A cake just for you ♡
+    </div>
+
+    <div class="cake-hint">
+        TAP THE CAKE ♡
+    </div>
+
+    <button id="cakeButton" class="cake-button">
+
+        <div class="flame flame1"></div>
+        <div class="flame flame2"></div>
+        <div class="flame flame3"></div>
+
+        <div class="candle candle1"></div>
+        <div class="candle candle2"></div>
+        <div class="candle candle3"></div>
+
+        <div class="cake-top">
+            ♡
+        </div>
+
+        <div class="cake-middle"></div>
+
+        <div class="cake-bottom"></div>
+
+        <div class="plate"></div>
+
+    </button>
+
+    <div id="flowerAnimation"></div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN WEBSITE
+========================================================= -->
+
+<main id="mainSite" class="hidden">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div id="heroPetals"></div>
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            HAPPY BIRTHDAY NADOD ❤️
+
+        </span>
+
+        <h2>
+           HAPPY BIRTHDAY <br>
+            <em>Nada❤️</em>
+        </h2>
+
+      
+
+        <div class="scroll-cue">
+            CHOOSE YOUR LITTLE SURPRISE
+            <span>↓</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     THREE CHOICES
+========================================================= -->
+
+<section id="threeDoors" class="choices-section">
+
+    <div class="section-intro">
+
+        <span class="eyebrow">
+            OPEN ONE
+        </span>
+
+        <h3>
+            Where should we go first?
+        </h3>
+
+    </div>
+
+
+    <div class="choices">
+
+
+        <!-- OPTION 1 -->
+
+        <button
+            class="choice"
+            onclick="window.location.href='video.html'"
+        >
+
+            <div class="choice-art flowers-choice">
+
+                <strong>01</strong>
+
+                <span>✿</span>
+                <span>❀</span>
+                <span>✿</span>
+
+            </div>
+
+            <div class="choice-text">
+
+                <small>
+                  .
+                </small>
+
+                <h4>
+                    The song & flowers
+                </h4>
+
+                <p>
+                    Something soft that reminds me of you.
+                </p>
+
+                <b>
+                    OPEN THIS PART →
+                </b>
+
+            </div>
+
+        </button>
+
+
+
+        <!-- OPTION 2 -->
+
+        <button
+            class="choice"
+            onclick="window.location.href='memories.html'"
+        >
+
+            <div class="choice-art memories-choice">
+
+                <strong>02</strong>
+
+                <div class="polaroid p1"></div>
+                <div class="polaroid p2"></div>
+                <div class="polaroid p3"></div>
+
+            </div>
+
+            <div class="choice-text">
+
+                <small>
+                    .
+                </small>
+
+                <h4>
+                     memories
+                </h4>
+
+                <p>
+Little memories I never want you to forget.
+                </p>
+
+                <b>
+                    OPEN THIS PART →
+                </b>
+
+            </div>
+
+        </button>
+
+
+
+        <!-- OPTION 3 -->
+
+        <button
+            class="choice"
+            onclick="window.location.href='letter.html'"
+        >
+
+            <div class="choice-art letter-choice">
+
+                <strong>03</strong>
+
+                <span>
+                    .
+                </span>
+
+                <i>
+                    Nada
+                </i>
+
+            </div>
+
+            <div class="choice-text">
+
+                <small>
+                  .
+                </small>
+
+                <h4>
+                    A letter for you
+                </h4>
+
+                <p>
+Some things are easier to write down than say.
+                </p>
+
+                <b>
+                    OPEN THIS PART →
+                </b>
+
+            </div>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BACK BUTTON
+========================================================= -->
+
+<div class="back-top">
+
+    <button id="backTop">
+        ↑ BACK TO THE THREE DOORS
+    </button>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Letter For You ♡</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<section
+    class="content-section letter-section"
+    style="min-height:100vh;"
+>
+
+    <div class="section-label">
+        03 · WORDS I MEAN
+    </div>
+
+
+    <article class="letter-card reveal visible">
+
+        <div class="letter-decoration left">
+            ✿
+        </div>
+
+        <div class="letter-decoration right">
+            ❀
+        </div>
+
+
+        <span class="letter-small">
+            A LITTLE LETTER
+        </span>
+
+
+        <h3>
+           NADA,
+        </h3>
+
+
+        <p>
+            I don't think a birthday message could ever
+            hold everything I feel for you, but I still
+            wanted to make you a little world that says
+            it for me.
+        </p>
+
+
+        <p>
+            Thank you for every laugh, every tiny moment,
+            every memory, and every version of yourself
+            you have shared with me.
+        </p>
+
+
+        <p>
+            You make ordinary days feel like something
+            worth keeping.
+        </p>
+
+
+        <p>
+            I want you to know that I truly see you as one of the best people in the whole world, and to me, you are the best and most beautiful engineer I could ever know. I hope you always believe in yourself, 
+            keep going after what you want, and achieve everything you dream of.
+        </p>
+
+
+        <p>
+            Today is about you.
+            I hope you always know how loved,
+            appreciated, and wonderfully special you are.
+        </p>
+
+
+        <div class="signature">
+            Forever yours ♡
+        </div>
+
+    </article>
+
+
+    <div class="back-top">
+
+       <button id="backTop">
+        ↑ BACK TO THE THREE DOORS
+    </button>
+
+    </div>
+
+</section>
+
+
+<!-- BACKGROUND MUSIC -->
+
+<audio
+    id="letterBackgroundMusic"
+    src="assets/letter-song.mp3.mpeg"
+    autoplay
+    loop
+    preload="auto"
+></audio>
+
+
+<script>
+
+    const letterMusic =
+        document.getElementById("letterBackgroundMusic");
+
+    letterMusic.volume = 0.45;
+
+
+    letterMusic.play().catch(function () {
+
+        document.addEventListener(
+            "click",
+            function startMusic() {
+
+                letterMusic.play().catch(function () {});
+
+                document.removeEventListener(
+                    "click",
+                    startMusic
+                );
+
+            },
+            { once: true }
+        );
+
+    });
+
+</script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

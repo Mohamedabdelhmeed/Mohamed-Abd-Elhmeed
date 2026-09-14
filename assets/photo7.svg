@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffddea"/><stop offset="1" stop-color="#ed83ae"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<circle cx="400" cy="390" r="155" fill="#fff" opacity=".55"/>
+<text x="400" y="410" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="58" fill="#9a5272">Memory 7</text>
+<text x="400" y="475" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#a86a86">Replace with your photo</text>
+<text x="400" y="905" text-anchor="middle" font-family="Georgia,serif" font-size="35" fill="#fff">♡</text>
+</svg>

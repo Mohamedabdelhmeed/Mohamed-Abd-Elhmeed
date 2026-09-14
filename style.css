@@ -1,0 +1,2138 @@
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#f9d5e1;
+    color:#593d49;
+    font-family:"DM Sans",sans-serif;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --pink:#f6a4c1;
+    --pink-dark:#ed789f;
+    --deep:#b94373;
+
+    --cream:#fff9f5;
+    --pink-bg:#f9d5e1;
+
+    --text:#593d49;
+    --muted:#94717d;
+}
+
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.screen{
+    min-height:100svh;
+    width:100%;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.eyebrow{
+    font-size:10px;
+    letter-spacing:.25em;
+    font-weight:600;
+    color:#a4496e;
+}
+
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.lock-screen{
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffdce9,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f8a8c4,
+            #f08bad
+        );
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    background:#fff;
+    opacity:.4;
+    filter:blur(5px);
+}
+
+.glow-one{
+    width:280px;
+    height:280px;
+    left:-100px;
+    top:-70px;
+}
+
+.glow-two{
+    width:360px;
+    height:360px;
+    right:-130px;
+    bottom:-100px;
+}
+
+.lock-card{
+
+    position:relative;
+
+    width:min(430px,100%);
+
+    padding:52px 42px 35px;
+
+    text-align:center;
+
+    background:rgba(255,249,250,.92);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 30px 80px rgba(169,71,107,.24);
+
+    backdrop-filter:blur(12px);
+}
+
+.heart-badge{
+
+    width:55px;
+    height:55px;
+
+    margin:-80px auto 25px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:white;
+
+    color:#d65a88;
+
+    font-size:29px;
+
+    box-shadow:
+        0 10px 28px rgba(169,71,107,.17);
+}
+
+.lock-card h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(45px,9vw,64px);
+
+    line-height:.86;
+
+    font-weight:600;
+
+    color:#643f4d;
+
+    margin:15px 0;
+}
+
+.lock-card p{
+
+    font-size:14px;
+    line-height:1.7;
+
+    color:#8d6875;
+
+    margin:22px auto 30px;
+
+    max-width:290px;
+}
+
+.lock-card form{
+    text-align:left;
+}
+
+.lock-card label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:10px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:#8c596c;
+}
+
+.lock-card input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #edb8ca;
+
+    border-radius:3px;
+
+    background:white;
+
+    text-align:center;
+
+    color:#633f4e;
+
+    letter-spacing:.25em;
+
+}
+
+.lock-card input::placeholder{
+
+    color:#c59aa9;
+
+    letter-spacing:.08em;
+}
+
+.lock-card form button{
+
+    width:100%;
+
+    margin-top:14px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:3px;
+
+    background:#e879a3;
+
+    color:white;
+
+    font-weight:600;
+
+    box-shadow:
+        0 12px 25px rgba(209,90,133,.18);
+}
+
+.lock-card form button span{
+    margin-left:10px;
+}
+
+#loginError{
+
+    height:18px;
+
+    margin-top:10px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    color:#b9446d;
+}
+
+.lock-card small{
+
+    display:block;
+
+    margin-top:25px;
+
+    color:#b18a98;
+
+    font-size:10px;
+
+    letter-spacing:.12em;
+}
+
+
+
+/* =========================================================
+   CAKE
+========================================================= */
+
+.cake-scene{
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            #fff5f8 0,
+            #fbd1df 42%,
+            #f3a2bd 100%
+        );
+}
+
+.scene-title{
+
+    position:absolute;
+
+    top:10%;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:28px;
+
+    color:#a84b70;
+}
+
+.cake-hint{
+
+    position:absolute;
+
+    bottom:10%;
+
+    font-size:10px;
+
+    letter-spacing:.22em;
+
+    color:#9d5873;
+
+    animation:hint 1.7s infinite;
+}
+
+.cake-button{
+
+    position:relative;
+
+    width:270px;
+    height:245px;
+
+    border:0;
+
+    background:transparent;
+
+    filter:
+        drop-shadow(
+            0 28px 22px rgba(166,62,105,.2)
+        );
+
+    animation:cakeFloat 3.5s infinite ease-in-out;
+}
+
+.plate{
+
+    position:absolute;
+
+    left:25px;
+    bottom:19px;
+
+    width:220px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        inset 0 -6px 0 #edc0cf;
+}
+
+.cake-bottom{
+
+    position:absolute;
+
+    left:45px;
+    bottom:39px;
+
+    width:180px;
+    height:62px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            #f7a9c4,
+            #ef7fa6
+        );
+
+    border:3px solid #fff0f5;
+}
+
+.cake-middle{
+
+    position:absolute;
+
+    left:45px;
+    bottom:84px;
+
+    width:180px;
+    height:48px;
+
+    border-radius:10px;
+
+    background:#fff7f2;
+
+    border:3px solid #f2ccd8;
+}
+
+.cake-top{
+
+    position:absolute;
+
+    left:45px;
+    bottom:116px;
+
+    width:180px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:#fff9f5;
+
+    border:3px solid #f1c6d4;
+
+    color:#df719a;
+
+    font-size:25px;
+}
+
+.candle{
+
+    position:absolute;
+
+    bottom:164px;
+
+    width:13px;
+    height:40px;
+
+    border-radius:4px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #f184a9 0 5px,
+            #fff5f7 5px 10px
+        );
+
+    z-index:3;
+}
+
+.candle1{left:93px}
+.candle2{left:129px}
+.candle3{left:165px}
+
+.flame{
+
+    position:absolute;
+
+    bottom:202px;
+
+    width:13px;
+    height:20px;
+
+    background:#ffb26d;
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    transform:rotate(45deg);
+
+    filter:
+        drop-shadow(
+            0 0 9px #ffbb72
+        );
+
+    animation:flicker .55s infinite alternate;
+
+    z-index:5;
+}
+
+.flame1{left:93px}
+.flame2{left:129px}
+.flame3{left:165px}
+
+
+
+/* =========================================================
+   FLOWER EXPLOSION
+========================================================= */
+
+/*
+ * IMPORTANT:
+ * The flower layer is COMPLETELY hidden when the page loads.
+ * It only becomes visible after clicking the cake.
+ */
+
+#flowerAnimation{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    display:none;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,247,251,.96) 22%,
+            rgba(252,220,233,.95) 52%,
+            rgba(237,164,190,.96) 100%
+        );
+}
+
+
+/*
+ * ONLY show the layer when active.
+ */
+
+#flowerAnimation.active{
+    display:block;
+}
+
+
+
+/* =========================================================
+   REALISTIC DRAWN FLOWER
+========================================================= */
+
+.orbit-flower{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:58px;
+    height:58px;
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(var(--angle))
+        translateX(0)
+        scale(.08);
+
+    animation:
+        flowerOrbit
+        var(--orbit-duration)
+        cubic-bezier(.18,.82,.22,1)
+        var(--delay)
+        forwards;
+
+    filter:
+        drop-shadow(
+            0 7px 9px
+            rgba(126,48,79,.18)
+        );
+
+    transform-origin:center center;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.orbit-flower::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:52px;
+    height:52px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            ellipse 38% 56%
+            at 50% 8%,
+            var(--petal-light) 0 36%,
+            var(--flower-color) 62%,
+            transparent 66%
+        ),
+
+        radial-gradient(
+            ellipse 38% 56%
+            at 92% 34%,
+            var(--petal-light) 0 36%,
+            var(--flower-color) 62%,
+            transparent 66%
+        ),
+
+        radial-gradient(
+            ellipse 38% 56%
+            at 82% 82%,
+            var(--petal-light) 0 36%,
+            var(--flower-color) 62%,
+            transparent 66%
+        ),
+
+        radial-gradient(
+            ellipse 38% 56%
+            at 18% 82%,
+            var(--petal-light) 0 36%,
+            var(--flower-color) 62%,
+            transparent 66%
+        ),
+
+        radial-gradient(
+            ellipse 38% 56%
+            at 8% 34%,
+            var(--petal-light) 0 36%,
+            var(--flower-color) 62%,
+            transparent 66%
+        );
+
+    filter:
+        drop-shadow(
+            0 1px 1px
+            rgba(116,48,76,.10)
+        );
+}
+
+
+/* =========================================================
+   FLOWER CENTER
+========================================================= */
+
+.orbit-flower::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:15px;
+    height:15px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff7b0 0 18%,
+            #ffd866 35%,
+            #e9a936 72%,
+            #c77b28 100%
+        );
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(255,214,111,.22),
+
+        0 0 10px
+        rgba(255,199,74,.65);
+
+    z-index:4;
+}
+
+
+/* =========================================================
+   FLOWER COLORS
+========================================================= */
+
+.flower-red{
+
+    --flower-color:#e84f73;
+    --petal-light:#ffb0c4;
+}
+
+.flower-pink{
+
+    --flower-color:#ee7399;
+    --petal-light:#ffc2d5;
+}
+
+.flower-rose{
+
+    --flower-color:#d94f82;
+    --petal-light:#f8a6c0;
+}
+
+.flower-white{
+
+    --flower-color:#fff8f7;
+    --petal-light:#ffffff;
+}
+
+.flower-yellow{
+
+    --flower-color:#f3bd4d;
+    --petal-light:#ffe7a1;
+}
+
+.flower-purple{
+
+    --flower-color:#a978c5;
+    --petal-light:#d9bce8;
+}
+
+.flower-blue{
+
+    --flower-color:#76a9dc;
+    --petal-light:#bdd9f4;
+}
+
+.flower-peach{
+
+    --flower-color:#ee987e;
+    --petal-light:#ffd0bd;
+}
+
+
+/* =========================================================
+   FLOWER SIZES
+========================================================= */
+
+.orbit-flower.small{
+
+    width:40px;
+    height:40px;
+}
+
+.orbit-flower.small::before{
+
+    width:36px;
+    height:36px;
+}
+
+.orbit-flower.small::after{
+
+    width:11px;
+    height:11px;
+}
+
+
+.orbit-flower.big{
+
+    width:76px;
+    height:76px;
+}
+
+.orbit-flower.big::before{
+
+    width:70px;
+    height:70px;
+}
+
+.orbit-flower.big::after{
+
+    width:19px;
+    height:19px;
+}
+
+
+/* =========================================================
+   FLOWER ORBIT + FLY + FALL
+========================================================= */
+
+@keyframes flowerOrbit{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(var(--angle))
+            translateX(0)
+            scale(.08);
+    }
+
+
+    8%{
+
+        opacity:1;
+    }
+
+
+    25%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(calc(var(--angle) + 70deg))
+            translateX(var(--radius-one))
+            rotate(-70deg)
+            scale(.72);
+    }
+
+
+    48%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(calc(var(--angle) + 170deg))
+            translateX(var(--radius-two))
+            rotate(-170deg)
+            scale(1);
+    }
+
+
+    66%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(calc(var(--angle) + 285deg))
+            translateX(var(--radius-three))
+            rotate(-285deg)
+            scale(1.08);
+    }
+
+
+    78%{
+
+        opacity:.98;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(calc(var(--angle) + 360deg))
+            translateX(var(--radius-four))
+            rotate(-360deg)
+            scale(.96);
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(
+                var(--fall-x),
+                var(--fall-y)
+            )
+            rotate(620deg)
+            scale(.62);
+    }
+
+}
+
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:75svh;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4a0be,
+            #ef83aa
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h2{
+
+    margin:18px 0 22px;
+
+    color:white;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            58px,
+            11vw,
+            120px
+        );
+
+    line-height:.78;
+
+    font-weight:500;
+}
+
+.hero h2 em{
+
+    font-family:"Great Vibes",cursive;
+
+    font-style:normal;
+
+    font-weight:400;
+}
+
+.hero p{
+
+    color:#fff9fb;
+
+    font-size:14px;
+}
+
+.scroll-cue{
+
+    margin-top:50px;
+
+    color:white;
+
+    font-size:9px;
+
+    letter-spacing:.25em;
+}
+
+.scroll-cue span{
+
+    display:block;
+
+    margin-top:12px;
+
+    font-size:18px;
+}
+
+.hero-petal{
+
+    position:absolute;
+
+    color:#ffffff88;
+
+    animation:
+        heroDrift 8s linear infinite;
+}
+
+
+
+/* =========================================================
+   CHOICES
+========================================================= */
+
+.choices-section{
+
+    padding:
+        100px
+        6vw
+        120px;
+
+    background:#f9d5e1;
+}
+
+.section-intro{
+
+    text-align:center;
+
+    margin-bottom:55px;
+}
+
+.section-intro h3{
+
+    margin:15px 0;
+
+    color:#643f4d;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            70px
+        );
+
+    line-height:.9;
+}
+
+.choices{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.choice{
+
+    padding:0;
+
+    border:0;
+
+    text-align:left;
+
+    background:#fff9f5;
+
+    box-shadow:
+        0 18px 50px
+        rgba(169,74,106,.10);
+
+    transition:.35s;
+
+    overflow:hidden;
+}
+
+.choice:hover{
+
+    transform:translateY(-9px);
+
+    box-shadow:
+        0 28px 60px
+        rgba(169,74,106,.17);
+}
+
+.choice-art{
+
+    height:260px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.choice-art strong{
+
+    position:absolute;
+
+    top:16px;
+    left:18px;
+
+    color:white;
+
+    font-size:10px;
+
+    letter-spacing:.18em;
+}
+
+
+
+/* FLOWER CHOICE */
+
+.flowers-choice{
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5a2be,
+            #e979a1
+        );
+
+    color:white;
+}
+
+.flowers-choice span{
+
+    position:absolute;
+
+    font-size:90px;
+}
+
+.flowers-choice span:nth-child(2){
+
+    transform:
+        translate(-70px,-30px)
+        rotate(-20deg);
+}
+
+.flowers-choice span:nth-child(3){
+
+    font-size:120px;
+
+    transform:
+        translate(40px,10px);
+}
+
+.flowers-choice span:nth-child(4){
+
+    transform:
+        translate(80px,-80px)
+        rotate(20deg);
+}
+
+
+
+/* MEMORY CHOICE */
+
+.memories-choice{
+
+    background:#edc8d5;
+}
+
+.polaroid{
+
+    position:absolute;
+
+    width:115px;
+    height:145px;
+
+    background:white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(143,77,101,.12);
+}
+
+.polaroid:after{
+
+    content:"♡";
+
+    width:95px;
+    height:105px;
+
+    margin:10px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#f4b3c8;
+
+    color:white;
+
+    font-size:32px;
+}
+
+.p1{
+
+    transform:
+        rotate(-13deg)
+        translate(-42px,3px);
+}
+
+.p2{
+
+    transform:
+        rotate(4deg)
+        translate(18px,-9px);
+}
+
+.p3{
+
+    transform:
+        rotate(15deg)
+        translate(65px,14px);
+}
+
+
+
+/* LETTER CHOICE */
+
+.letter-choice{
+
+    background:#fff8f2;
+
+    color:#a35a75;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:34px;
+
+    display:block;
+
+    padding:70px 30px;
+}
+
+.letter-choice i{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:-5px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:56px;
+
+    font-style:italic;
+}
+
+.letter-choice strong{
+    color:#a35a75;
+}
+
+
+
+.choice-text{
+
+    padding:
+        24px
+        25px
+        28px;
+}
+
+.choice-text small{
+
+    color:#b36b84;
+
+    font-size:9px;
+
+    letter-spacing:.19em;
+}
+
+.choice-text h4{
+
+    margin:10px 0;
+
+    color:#62404c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:34px;
+
+    line-height:1;
+}
+
+.choice-text p{
+
+    margin:
+        0
+        0
+        20px;
+
+    color:#94717d;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+.choice-text b{
+
+    color:#bf4f79;
+
+    font-size:10px;
+
+    letter-spacing:.12em;
+}
+
+
+
+/* =========================================================
+   CONTENT SECTIONS
+========================================================= */
+
+.content-section{
+
+    padding:
+        95px
+        6vw;
+
+    scroll-margin-top:20px;
+}
+
+.section-label{
+
+    max-width:1100px;
+
+    margin:
+        0
+        auto
+        35px;
+
+    color:#b34e76;
+
+    font-size:10px;
+
+    letter-spacing:.24em;
+}
+
+.content-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:22px;
+}
+
+.cream-card{
+
+    background:#fffaf6;
+
+    padding:28px;
+
+    box-shadow:
+        0 20px 55px
+        rgba(169,74,106,.10);
+}
+
+.card-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#9e536e;
+
+    font-size:9px;
+
+    letter-spacing:.2em;
+}
+
+.card-head b{
+
+    font-size:20px;
+
+    font-weight:400;
+}
+
+
+
+/* =========================================================
+   BOUQUET
+========================================================= */
+
+.bouquet{
+
+    height:370px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.stem{
+
+    position:absolute;
+
+    width:4px;
+    height:170px;
+
+    bottom:60px;
+
+    background:#8eb18c;
+
+    transform-origin:bottom;
+}
+
+.stem1{transform:rotate(-20deg)}
+.stem2{transform:rotate(-7deg)}
+.stem3{transform:rotate(10deg)}
+.stem4{transform:rotate(24deg)}
+
+.flower{
+
+    position:absolute;
+
+    color:#ef8bad;
+
+    font-size:76px;
+
+    filter:
+        drop-shadow(
+            0 8px 5px
+            rgba(163,74,102,.08)
+        );
+}
+
+.flower1{
+    transform:translate(-65px,-50px);
+}
+
+.flower2{
+
+    transform:translate(0,-95px);
+
+    font-size:95px;
+}
+
+.flower3{
+    transform:translate(63px,-30px);
+}
+
+.flower4{
+
+    transform:translate(0,-5px);
+
+    font-size:65px;
+}
+
+.ribbon{
+
+    position:absolute;
+
+    bottom:48px;
+
+    padding:12px 25px;
+
+    border-radius:50%;
+
+    background:#ef8eac;
+
+    color:white;
+
+    font-size:25px;
+}
+
+.flower-caption{
+
+    text-align:center;
+
+    color:#c2537c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:18px;
+
+    letter-spacing:.08em;
+}
+
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-container{
+
+    position:relative;
+
+    margin-top:22px;
+
+    aspect-ratio:16/9;
+
+    background:#f2d0db;
+
+    overflow:hidden;
+}
+
+.video-container video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.video-placeholder{
+
+    position:absolute;
+
+    inset:0;
+
+    display:grid;
+
+    place-items:center;
+
+    align-content:center;
+
+    gap:10px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3a3bd,
+            #df769d
+        );
+}
+
+.play-circle{
+
+    width:56px;
+    height:56px;
+
+    border:1px solid white;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.music-player{
+
+    margin-top:13px;
+
+    padding:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#f6a0bb;
+
+    color:white;
+}
+
+.music-player button{
+
+    width:34px;
+    height:34px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#d8648c;
+}
+
+.music-player span{
+
+    flex:1;
+
+    font-size:10px;
+}
+
+.music-player input{
+    width:80px;
+}
+
+.equalizer{
+
+    height:25px;
+
+    display:flex;
+
+    align-items:end;
+
+    gap:3px;
+}
+
+.equalizer i{
+
+    width:3px;
+    height:8px;
+
+    display:block;
+
+    border-radius:2px;
+
+    background:white;
+}
+
+.equalizer.playing i{
+
+    animation:
+        equalizer .55s infinite alternate;
+}
+
+
+
+/* =========================================================
+   MEMORIES
+========================================================= */
+
+.memories-section{
+
+    background:#f5b2c9;
+}
+
+.memory-heading{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.memory-heading span{
+
+    color:#9f506e;
+
+    font-size:10px;
+
+    letter-spacing:.22em;
+}
+
+.memory-heading h3{
+
+    margin:17px 0;
+
+    color:white;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            46px,
+            7vw,
+            80px
+        );
+
+    line-height:.82;
+}
+
+.memory-heading em{
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-style:normal;
+
+    font-size:.8em;
+}
+
+.memory-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.memory{
+
+    border:0;
+
+    padding:
+        10px
+        10px
+        15px;
+
+    background:white;
+
+    box-shadow:
+        0 15px 30px
+        rgba(142,64,92,.13);
+
+    transition:.3s;
+}
+
+.memory:hover{
+
+    transform:
+        translateY(-7px)
+        rotate(-1deg);
+}
+
+.memory:nth-child(even){
+
+    transform:
+        rotate(1.5deg);
+}
+.memory img,
+.memory video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: block;
+    object-fit: cover;
+}
+
+.memory span{
+
+    display:block;
+
+    margin-top:9px;
+
+    color:#9a5b70;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:16px;
+
+    font-style:italic;
+}
+
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-section{
+
+    background:#f9d5e1;
+}
+
+.letter-card{
+
+    max-width:820px;
+
+    margin:
+        10px
+        auto
+        30px;
+
+    padding:
+        80px
+        11%;
+
+    position:relative;
+
+    background:#fffaf4;
+
+    text-align:center;
+
+    box-shadow:
+        0 25px 60px
+        rgba(169,74,106,.12);
+}
+
+.letter-small{
+
+    color:#b25c78;
+
+    font-size:9px;
+
+    letter-spacing:.25em;
+}
+
+.letter-card h3{
+
+    margin:
+        14px
+        0
+        28px;
+
+    color:#684653;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:58px;
+
+    font-style:italic;
+}
+
+.letter-card p{
+
+    margin:15px 0;
+
+    color:#765866;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+.signature{
+
+    margin-top:35px;
+
+    color:#c34f79;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:42px;
+}
+
+.letter-decoration{
+
+    position:absolute;
+
+    color:#efa0b8;
+
+    font-size:50px;
+
+    opacity:.7;
+}
+
+.letter-decoration.left{
+
+    top:24px;
+    left:28px;
+}
+
+.letter-decoration.right{
+
+    right:28px;
+    bottom:25px;
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:35px;
+
+    text-align:center;
+
+    color:white;
+
+    background:#ef82a8;
+
+    font-size:9px;
+
+    letter-spacing:.22em;
+}
+
+footer b{
+
+    margin:
+        0
+        12px;
+
+    font-size:18px;
+}
+
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back-top{
+
+    padding:
+        0
+        0
+        70px;
+
+    text-align:center;
+
+    background:#f9d5e1;
+}
+
+.back-top button{
+
+    border:0;
+
+    background:transparent;
+
+    color:#b34e76;
+
+    font-size:10px;
+
+    letter-spacing:.16em;
+}
+
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:999;
+
+    display:grid;
+
+    place-items:center;
+
+    padding:30px;
+
+    background:rgba(62,38,49,.85);
+}
+
+.lightbox img{
+
+    max-width:95vw;
+
+    max-height:85vh;
+
+    padding:12px;
+
+    background:white;
+
+    object-fit:contain;
+}
+
+.lightbox button{
+
+    position:absolute;
+
+    top:18px;
+    right:22px;
+
+    border:0;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:40px;
+}
+
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cakeFloat{
+
+    50%{
+        transform:translateY(-9px);
+    }
+
+}
+
+@keyframes flicker{
+
+    to{
+
+        transform:
+            rotate(48deg)
+            scale(1.12);
+
+        opacity:.8;
+    }
+
+}
+
+@keyframes hint{
+
+    50%{
+
+        opacity:.45;
+
+        transform:
+            translateY(4px);
+    }
+
+}
+
+@keyframes equalizer{
+
+    to{
+        height:22px;
+    }
+
+}
+
+@keyframes heroDrift{
+
+    to{
+
+        transform:
+            translateY(80vh)
+            rotate(180deg);
+
+        opacity:0;
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:850px){
+
+    .choices{
+
+        grid-template-columns:1fr;
+
+        max-width:580px;
+    }
+
+    .choice{
+
+        display:grid;
+
+        grid-template-columns:
+            38% 62%;
+    }
+
+    .choice-art{
+        height:220px;
+    }
+
+    .content-grid{
+        grid-template-columns:1fr;
+    }
+
+    .memory-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+
+@media(max-width:600px){
+
+    .lock-card{
+        padding:
+            45px
+            24px
+            30px;
+    }
+
+    .hero{
+        min-height:65svh;
+    }
+
+    .choices-section,
+    .content-section{
+
+        padding:
+            75px
+            18px;
+    }
+
+    .choice{
+        display:block;
+    }
+
+    .choice-art{
+        height:220px;
+    }
+
+    .memory-grid{
+        gap:10px;
+    }
+
+    .letter-card{
+
+        padding:
+            60px
+            25px;
+    }
+
+    .letter-card p{
+        font-size:16px;
+    }
+
+    .cake-button{
+        transform:scale(.9);
+    }
+
+}

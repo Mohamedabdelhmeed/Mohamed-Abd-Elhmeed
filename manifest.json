@@ -1,0 +1,9 @@
+{
+  "name": "Happy Birthday ♡",
+  "short_name": "Birthday Surprise",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5a4c4",
+  "theme_color": "#f49abf",
+  "description": "A private birthday surprise."
+}

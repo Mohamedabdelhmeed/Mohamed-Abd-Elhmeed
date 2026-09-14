@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Song & Flowers ♡</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<section
+    class="content-section"
+    style="min-height:100vh;background:#f9d5e1;"
+>
+
+    <div class="section-label">
+        01 · A MOMENT FOR US
+    </div>
+
+
+    <div class="content-grid">
+
+
+        <article class="cream-card reveal visible">
+
+            <div class="card-head">
+
+                <span>
+                  MY FAVOURITE FLOWERS
+                </span>
+
+                <b>
+                    ♡
+                </b>
+
+            </div>
+
+
+            <div class="bouquet">
+
+                <div class="stem stem1"></div>
+                <div class="stem stem2"></div>
+                <div class="stem stem3"></div>
+                <div class="stem stem4"></div>
+
+                <div class="flower flower1">
+                    ✿
+                </div>
+
+                <div class="flower flower2">
+                    ❀
+                </div>
+
+                <div class="flower flower3">
+                    ✿
+                </div>
+
+                <div class="flower flower4">
+                    ❀
+                </div>
+
+                <div class="ribbon">
+                    ♡
+                </div>
+
+            </div>
+
+
+            <div class="flower-caption">
+                NADA
+            </div>
+
+        </article>
+
+
+        <article class="cream-card reveal visible">
+
+            <div class="card-head">
+
+                <span>
+                    A SONG THAT REMINDS ME OF US
+                </span>
+
+                <b>
+                    ♪
+                </b>
+
+            </div>
+
+
+            <!-- =================================================
+                 YOUTUBE VIDEO
+                 PUT YOUR YOUTUBE LINK HERE
+            ================================================== -->
+
+            <div
+                class="video-container"
+                id="youtubeVideoContainer"
+                data-youtube="https://youtube.com/watch?v=CwKvsoCILOw&si=qUdfrGhFTe9LYfuK"
+            >
+
+                <!-- YouTube video -->
+                <iframe
+                    id="youtubeVideo"
+                    src=""
+                    title="A song that reminds me of us"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="
+                        display:none;
+                        width:100%;
+                        height:100%;
+                        border:0;
+                    "
+                ></iframe>
+
+
+                <!-- Click to start -->
+                <div
+                    class="video-placeholder"
+                    id="youtubePlaceholder"
+                    style="cursor:pointer;"
+                >
+
+                    <div class="play-circle">
+                        ▶
+                    </div>
+
+                    <span>
+                        Click to play our video ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="music-player">
+
+                <button id="playSong">
+                    ▶
+                </button>
+
+
+                <div
+                    id="equalizer"
+                    class="equalizer"
+                >
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+
+                <span>
+                    our little song ♡
+                </span>
+
+
+                <audio
+                    id="song"
+                    src="assets/your-song.mp3"
+                ></audio>
+
+
+                <input
+                    id="volume"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.75"
+                >
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="back-top">
+
+        <button id="backTop">
+        ↑ BACK TO THE THREE DOORS
+    </button>
+
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+
+<!-- =========================================================
+     YOUTUBE PLAYER CODE
+     ONLY FOR THE YOUTUBE VIDEO
+========================================================= -->
+
+<script>
+
+const youtubeContainer =
+    document.getElementById("youtubeVideoContainer");
+
+const youtubeVideo =
+    document.getElementById("youtubeVideo");
+
+const youtubePlaceholder =
+    document.getElementById("youtubePlaceholder");
+
+
+youtubePlaceholder.addEventListener("click", function () {
+
+    /*
+       Gets the YouTube link from:
+       data-youtube="..."
+    */
+
+    const youtubeURL =
+        youtubeContainer.dataset.youtube;
+
+
+    /*
+       Extract YouTube video ID
+    */
+
+    let videoID = "";
+
+
+    try {
+
+        const url =
+            new URL(youtubeURL);
+
+
+        if (
+            url.hostname.includes("youtube.com")
+        ) {
+
+            videoID =
+                url.searchParams.get("v") || "";
+
+        }
+
+
+        if (
+            url.hostname === "youtu.be"
+        ) {
+
+            videoID =
+                url.pathname.substring(1);
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Invalid YouTube URL"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Stop if no valid video ID
+    */
+
+    if (!videoID) {
+
+        console.error(
+            "Please put a valid YouTube link."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Open YouTube video INSIDE the website
+       and start automatically after the click.
+    */
+
+    youtubeVideo.src =
+        "https://www.youtube.com/embed/" +
+        videoID +
+        "?autoplay=1&rel=0";
+
+
+    /*
+       Hide placeholder
+    */
+
+    youtubePlaceholder.style.display =
+        "none";
+
+
+    /*
+       Show YouTube video
+    */
+
+    youtubeVideo.style.display =
+        "block";
+
+});
+
+</script>
+
+</body>
+</html>
+

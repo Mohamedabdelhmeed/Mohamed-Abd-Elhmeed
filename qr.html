@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your QR Code</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#f49abe,#ffe1ec);font-family:Arial,sans-serif;color:#7e3f5d}
+.card{width:min(420px,calc(100% - 40px));padding:32px;text-align:center;background:#fff8fb;border-radius:25px;box-shadow:0 25px 70px #a74f7433}
+h1{font-family:Georgia,serif;font-style:italic;font-weight:500}
+#qrcode{display:grid;place-items:center;margin:25px auto;padding:15px;background:#fff;width:max-content;border-radius:14px}
+p{font-size:13px;line-height:1.6}.url{word-break:break-all;background:#fff0f6;padding:10px;border-radius:10px}
+button{border:0;border-radius:999px;padding:12px 20px;background:#ed77a7;color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="card">
+  <div>♡</div>
+  <h1>Share the surprise</h1>
+  <p>This page automatically creates a QR code for your current website address.</p>
+  <div id="qrcode"></div>
+  <div class="url" id="url"></div>
+  <p>Save/screenshot this QR and send it with your birthday message.</p>
+  <button onclick="window.print()">Print / Save PDF</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+const url=location.origin+location.pathname.replace(/\/qr\.html$/,"/");
+document.getElementById("url").textContent=url;
+new QRCode(document.getElementById("qrcode"),{text:url,width:240,height:240,colorDark:"#c94f82",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});
+</script>
+</body>
+</html>
